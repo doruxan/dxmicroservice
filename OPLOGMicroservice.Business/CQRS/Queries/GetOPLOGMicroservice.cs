@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace OPLOGMicroservice.Business.CQRS.Queries
 {
-    public class GetOPLOGMicroservice<TDto> : IAsyncQuery<GetOPLOGMicroserviceResponse>
+    public class GetOPLOGMicroservice : IAsyncQuery<GetOPLOGMicroserviceResponse>
     {
         public DynamicQueryOptions QueryOptions { get; set; }
     }
 
-    public class GetOPLOGMicroserviceHandler<T> : IAsyncQueryExecutor<GetOPLOGMicroservice<T>, GetOPLOGMicroserviceResponse>
+    public class GetOPLOGMicroserviceHandler : IAsyncQueryExecutor<GetOPLOGMicroservice, GetOPLOGMicroserviceResponse>
     {
-        public GetOPLOGMicroserviceResponse Execute(GetOPLOGMicroservice<T> query, CancellationToken cancellationToken)
+        public GetOPLOGMicroserviceResponse Execute(GetOPLOGMicroservice query, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<GetOPLOGMicroserviceResponse> ExecuteAsync(GetOPLOGMicroservice<T> query, CancellationToken cancellationToken)
+        public Task<GetOPLOGMicroserviceResponse> ExecuteAsync(GetOPLOGMicroservice query, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }
