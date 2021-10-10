@@ -8,9 +8,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OPLOGMicroservice.API.Configuration;
+using OPLOGMicroservice.Auth;
 using OPLOGMicroservice.Business;
 using OPLOGMicroservice.Business.CQRS.Commands;
+using OPLOGMicroservice.Business.Infra;
+using OPLOGMicroservice.Data.Core;
 using OPLOGMicroservice.Data.Core.Relational.EntityFramework.Contexts;
+using OPLOGMicroservice.Data.Core.Relational.EntityFramework.Repositories;
 using OPLOGMicroservice.Data.Data;
 using OPLOGMicroservice.Infra.Swagger;
 using OPLOGMicroservice.Logging;
@@ -55,6 +59,17 @@ namespace OPLOGMicroservice.API
             services.AddOPLOGSwagger(ApiVersion, ApiName, OPLOGMicroserviceConfiguration.Auth0Options, _env);
 
 
+            services.AddCors(o => o.AddPolicy("AllowAnyOrigin", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
+
+            services.AddOPLOGAuthentication(OPLOGMicroserviceConfiguration.Auth0Options);
+            services.AddOPLOGAuthorization(OPLOGMicroserviceConfiguration.Auth0Options);
+
+
             string dbConnectionString = new SqlConnectionStringBuilder
             {
                 DataSource = OPLOGMicroserviceConfiguration.EfDataConfiguration.Connection.Server,
@@ -82,7 +97,20 @@ namespace OPLOGMicroservice.API
             services.AddScoped<IReadDbContext, OPLOGMicroserviceReadDbContext>();
             services.AddScoped<IWriteDbContext, OPLOGMicroserviceWriteDbContext>();
 
+            services.AddScoped(typeof(ITenantEntityWriteRepository<>), typeof(TenantEntityWriteRepository<>));
+            services.AddScoped(typeof(ITenantEntityReadRepository<>), typeof(TenantEntityReadRepository<>));
+
+            services.AddScoped(typeof(ITenantEntityWriteRepository<,>), typeof(TenantEntityWriteRepository<,>));
+            services.AddScoped(typeof(ITenantEntityReadRepository<,>), typeof(TenantEntityReadRepository<,>));
+
+            services.AddScoped(typeof(IEntityWriteRepository<>), typeof(EntityWriteRepository<>));
+            services.AddScoped(typeof(IEntityReadRepository<>), typeof(EntityReadRepository<>));
+
             services.AddMediatR(typeof(CreateOPLOGMicroservice).GetTypeInfo().Assembly);
+
+            services.AddScoped<IBaseService, BaseService>();
+            services.AddScoped<IUnitOfWork, OPLOGMicroserviceUnitOfWork>();
+
 
 
             services.AddControllers(options =>
@@ -122,6 +150,8 @@ namespace OPLOGMicroservice.API
 
             app.UseRouting();
 
+            app.UseAuthentication();
+            app.AddOPLOGApiKeyAuth();
             app.UseAuthorization();
 
             app.UseOPLOGExceptionHandling();

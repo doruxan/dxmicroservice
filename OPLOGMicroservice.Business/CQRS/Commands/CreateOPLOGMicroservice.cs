@@ -11,33 +11,25 @@ namespace OPLOGMicroservice.Business.CQRS.Commands
     public class CreateOPLOGMicroservice : IRequest<CreateOPLOGMicroserviceResponse>
     {
         public CreateOPLOGMicroserviceRequest Request { get; set; }
-        public bool Result { get; set; }
-        public CreateOPLOGMicroserviceResponse ReturnValue { get; set; }
     }
 
     public class CreateOPLOGMicroserviceHandler : IRequestHandler<CreateOPLOGMicroservice, CreateOPLOGMicroserviceResponse>
     {
         private readonly IEntityWriteRepository<OPLOGMicroserviceEntity> repository;
-        private readonly IUnitOfWork unitOfWork;
 
         public CreateOPLOGMicroserviceHandler(
-            IEntityWriteRepository<OPLOGMicroserviceEntity> repository,
-            IUnitOfWork unitOfWork)
+            IEntityWriteRepository<OPLOGMicroserviceEntity> repository)
         {
             this.repository = repository;
-            this.unitOfWork = unitOfWork;
         }
 
-        public async Task<CreateOPLOGMicroserviceResponse> Handle(CreateOPLOGMicroservice request, CancellationToken cancellationToken)
+        public async Task<CreateOPLOGMicroserviceResponse> Handle(CreateOPLOGMicroservice query, CancellationToken cancellationToken)
         {
-            //var entity = mapper.Map<ContactEntity>(command.Request);
-            //await repository.AddAsync(entity);
+            var entity = new OPLOGMicroserviceEntity(query.Request.Name);
 
-            //await unitOfWork.CommitAsync(cancellationToken);
+            await repository.AddAsync(entity, cancellationToken);
 
-            //command.ReturnValue = mapper.Map<CreateOPLOGMicroserviceResponse>(entity);
-
-            return null;
+            return new CreateOPLOGMicroserviceResponse { Entity = entity };
         }
     }
 }

@@ -3,7 +3,7 @@ using OPLOGMicroservice.Data.Core.Relational.EntityFramework.Entities;
 
 namespace OPLOGMicroservice.Domain
 {
-    public class OPLOGMicroserviceEntity : Entity
+    public class OPLOGMicroserviceEntity : Entity<string>
     {
         public OPLOGMicroserviceEntity(string name)
         {

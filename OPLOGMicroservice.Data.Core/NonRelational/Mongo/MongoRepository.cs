@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace OPLOGMicroservice.Data.Core.NonRelational.Mongo
 {
-    class MongoRepository
-    {
-    }
     public class MongoRepository<T> : IRepository<T> where T : MongoEntity
     {
         private readonly IMongoContext context;

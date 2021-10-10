@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGMicroservice.Data.Core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGMicroservice.Infra", "OPLOGMicroservice.Infra\OPLOGMicroservice.Infra.csproj", "{1B71D301-AAB9-474B-8BA4-5E6ABD0AD6AE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGMicroservice.Business.Core", "OPLOGMicroservice.Business.Core\OPLOGMicroservice.Business.Core.csproj", "{62C87473-F897-43D5-89A7-BD97B88514FC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGMicroservice.Business.Core.Azure", "OPLOGMicroservice.Business.Core.Azure\OPLOGMicroservice.Business.Core.Azure.csproj", "{D1FBC30D-F8FE-45B2-BD67-607451237AFE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPLOGMicroservice.Logging", "OPLOGMicroservice.Logging\OPLOGMicroservice.Logging.csproj", "{C1D4FF28-B881-4458-92CB-B9919C8A71F2}"
@@ -55,10 +53,6 @@ Global
 		{1B71D301-AAB9-474B-8BA4-5E6ABD0AD6AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B71D301-AAB9-474B-8BA4-5E6ABD0AD6AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B71D301-AAB9-474B-8BA4-5E6ABD0AD6AE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62C87473-F897-43D5-89A7-BD97B88514FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62C87473-F897-43D5-89A7-BD97B88514FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62C87473-F897-43D5-89A7-BD97B88514FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62C87473-F897-43D5-89A7-BD97B88514FC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D1FBC30D-F8FE-45B2-BD67-607451237AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D1FBC30D-F8FE-45B2-BD67-607451237AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1FBC30D-F8FE-45B2-BD67-607451237AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using OPLOGMicroservice.Business.Core.Interfaces;
 using OPLOGMicroservice.Business.CQRS.Commands;
+using OPLOGMicroservice.Business.CQRS.Common.Queries.QueryEntities;
+using OPLOGMicroservice.Business.Infra;
+using OPLOGMicroservice.Domain;
 //using OPLOGMicroservice.Business.CQRS.Common.Queries.QueryEntities;
 using OPLOGMicroservice.Infra.DynamicQuery;
 using OPLOGMicroservice.Model.OPLOGMicroservice.CreateOPLOGMicroservice;
@@ -23,21 +25,15 @@ namespace OPLOGMicroservice.API.Controllers
     public class OPLOGMicroserviceController : Controller
     {
         private readonly ILogger<OPLOGMicroserviceController> _logger;
-        private readonly ICommandBus commandBus;
-        private readonly IQueryProcessor queryProcessor;
-        private readonly IEventBus eventBus;
+        private readonly IBaseService _baseService;
 
         public OPLOGMicroserviceController(
             ILogger<OPLOGMicroserviceController> logger,
-            ICommandBus commandBus,
-            IQueryProcessor queryProcessor,
-            IEventBus eventBus
+            IBaseService baseService
             )
         {
             _logger = logger;
-            this.commandBus = commandBus;
-            this.queryProcessor = queryProcessor;
-            this.eventBus = eventBus;
+            _baseService = baseService;
         }
 
         [HttpPost]
@@ -48,8 +44,8 @@ namespace OPLOGMicroservice.API.Controllers
         public async Task<IActionResult> CreateOPLOGMicroservice(CreateOPLOGMicroserviceRequest request, CancellationToken cancelliationToken)
         {
             var command = new CreateOPLOGMicroservice { Request = request };
-            await commandBus.SendAsync<CreateOPLOGMicroservice, CreateOPLOGMicroserviceResponse>(command, cancelliationToken);
-            return StatusCode(201, command.ReturnValue);
+            var result = await _baseService.SendCommandAsync(command, cancelliationToken);
+            return StatusCode(201, result);
         }
 
         [HttpDelete]
@@ -61,8 +57,8 @@ namespace OPLOGMicroservice.API.Controllers
         public async Task<IActionResult> DeleteOPLOGMicroservice(DeleteOPLOGMicroserviceRequest request, CancellationToken cancelliationToken)
         {
             var command = new DeleteOPLOGMicroservice { Request = request };
-            await commandBus.SendAsync<DeleteOPLOGMicroservice, DeleteOPLOGMicroserviceResponse>(command, cancelliationToken);
-            return StatusCode(200, command.ReturnValue);
+            var result = await _baseService.SendCommandAsync(command, cancelliationToken);
+            return StatusCode(200, result);
         }
 
         [HttpPut]
@@ -73,8 +69,8 @@ namespace OPLOGMicroservice.API.Controllers
         public async Task<IActionResult> UpdateOPLOGMicroservice(UpdateOPLOGMicroserviceRequest request, CancellationToken cancelliationToken)
         {
             var command = new UpdateOPLOGMicroservice { Request = request };
-            await commandBus.SendAsync<UpdateOPLOGMicroservice, UpdateOPLOGMicroserviceResponse>(command, cancelliationToken);
-            return StatusCode(201, command.ReturnValue);
+            var result = await _baseService.SendCommandAsync(command, cancelliationToken);
+            return StatusCode(201, result);
         }
 
         [HttpGet]
@@ -84,9 +80,9 @@ namespace OPLOGMicroservice.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetOPLOGMicroservice([FromQuery] DynamicQueryOptions options, CancellationToken cancelliationToken)
         {
-            //var query = new QueryEntitiesQuery<OPLOGMicroserviceEntity, GetOPLOGMicroserviceResponse> (options);
-            //var result = await queryProcessor.ProcessAsync(query, cancelliationToken);
-            return StatusCode(200);
+            var query = new QueryEntitiesQuery<OPLOGMicroserviceEntity, GetOPLOGMicroserviceResponse>(options);
+            var result = await _baseService.SendQueryAsync(query, cancelliationToken);
+            return StatusCode(200, result);
         }
     }
 }
