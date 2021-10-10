@@ -1,18 +1,21 @@
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OPLOGMicroservice.API.Configuration;
 using OPLOGMicroservice.Business;
+using OPLOGMicroservice.Business.CQRS.Commands;
+using OPLOGMicroservice.Data.Core.Relational.EntityFramework.Contexts;
 using OPLOGMicroservice.Data.Data;
 using OPLOGMicroservice.Infra.Swagger;
 using OPLOGMicroservice.Logging;
 using System.Collections.Generic;
-using Microsoft.Data.SqlClient;
-using OPLOGMicroservice.Data.Core.Relational.EntityFramework.Contexts;
+using System.Reflection;
 
 namespace OPLOGMicroservice.API
 {
@@ -79,7 +82,7 @@ namespace OPLOGMicroservice.API
             services.AddScoped<IReadDbContext, OPLOGMicroserviceReadDbContext>();
             services.AddScoped<IWriteDbContext, OPLOGMicroserviceWriteDbContext>();
 
-            services.RegisterBusinessDependencies();
+            services.AddMediatR(typeof(CreateOPLOGMicroservice).GetTypeInfo().Assembly);
 
 
             services.AddControllers(options =>

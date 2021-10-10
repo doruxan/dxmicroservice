@@ -1,24 +1,19 @@
 ﻿using DynamicQueryBuilder.Models;
-using OPLOGMicroservice.Business.Core.Interfaces;
+using MediatR;
 using OPLOGMicroservice.Model.OPLOGMicroservice.GetOPLOGMicroservice;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace OPLOGMicroservice.Business.CQRS.Queries
 {
-    public class GetOPLOGMicroservice<TDto> : IAsyncQuery<GetOPLOGMicroserviceResponse>
+    public class GetOPLOGMicroservice : IRequest<GetOPLOGMicroserviceResponse>
     {
         public DynamicQueryOptions QueryOptions { get; set; }
     }
 
-    public class GetOPLOGMicroserviceHandler<T> : IAsyncQueryExecutor<GetOPLOGMicroservice<T>, GetOPLOGMicroserviceResponse>
+    public class GetOPLOGMicroserviceHandler: IRequestHandler<GetOPLOGMicroservice, GetOPLOGMicroserviceResponse>
     {
-        public GetOPLOGMicroserviceResponse Execute(GetOPLOGMicroservice<T> query, CancellationToken cancellationToken)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<GetOPLOGMicroserviceResponse> ExecuteAsync(GetOPLOGMicroservice<T> query, CancellationToken cancellationToken)
+        public Task<GetOPLOGMicroserviceResponse> Handle(GetOPLOGMicroservice request, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }

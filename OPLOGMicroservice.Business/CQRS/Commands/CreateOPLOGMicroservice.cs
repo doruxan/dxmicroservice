@@ -1,4 +1,4 @@
-﻿using OPLOGMicroservice.Business.Core.Interfaces;
+﻿using MediatR;
 using OPLOGMicroservice.Data.Core;
 using OPLOGMicroservice.Data.Core.Relational.EntityFramework.Repositories;
 using OPLOGMicroservice.Domain;
@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace OPLOGMicroservice.Business.CQRS.Commands
 {
-    public class CreateOPLOGMicroservice : IAsyncCommand<CreateOPLOGMicroserviceResponse>
+    public class CreateOPLOGMicroservice : IRequest<CreateOPLOGMicroserviceResponse>
     {
         public CreateOPLOGMicroserviceRequest Request { get; set; }
         public bool Result { get; set; }
         public CreateOPLOGMicroserviceResponse ReturnValue { get; set; }
     }
 
-    public class CreateOPLOGMicroserviceHandler : IAsyncCommandHandler<CreateOPLOGMicroservice, CreateOPLOGMicroserviceResponse>
+    public class CreateOPLOGMicroserviceHandler : IRequestHandler<CreateOPLOGMicroservice, CreateOPLOGMicroserviceResponse>
     {
         private readonly IEntityWriteRepository<OPLOGMicroserviceEntity> repository;
         private readonly IUnitOfWork unitOfWork;
@@ -28,12 +28,7 @@ namespace OPLOGMicroservice.Business.CQRS.Commands
             this.unitOfWork = unitOfWork;
         }
 
-        public void Handle(CreateOPLOGMicroservice command, CancellationToken cancellationToken)
-        {
-            HandleAsync(command, cancellationToken).GetAwaiter().GetResult();
-        }
-
-        public async Task HandleAsync(CreateOPLOGMicroservice command, CancellationToken cancellationToken)
+        public async Task<CreateOPLOGMicroserviceResponse> Handle(CreateOPLOGMicroservice request, CancellationToken cancellationToken)
         {
             //var entity = mapper.Map<ContactEntity>(command.Request);
             //await repository.AddAsync(entity);
@@ -41,6 +36,8 @@ namespace OPLOGMicroservice.Business.CQRS.Commands
             //await unitOfWork.CommitAsync(cancellationToken);
 
             //command.ReturnValue = mapper.Map<CreateOPLOGMicroserviceResponse>(entity);
+
+            return null;
         }
     }
 }

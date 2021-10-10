@@ -7,11 +7,11 @@
   <ItemGroup>
     <PackageReference Include="DynamicQueryBuilder" Version="1.0.5" />
     <PackageReference Include="Mapster" Version="4.1.1" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OPLOGMicroservice.Business.Core\OPLOGMicroservice.Business.Core.csproj" />
     <ProjectReference Include="..\OPLOGMicroservice.Data.Core\OPLOGMicroservice.Data.Core.csproj" />
     <ProjectReference Include="..\OPLOGMicroservice.Domain\OPLOGMicroservice.Domain.csproj" />
     <ProjectReference Include="..\OPLOGMicroservice.Infra\OPLOGMicroservice.Infra.csproj" />

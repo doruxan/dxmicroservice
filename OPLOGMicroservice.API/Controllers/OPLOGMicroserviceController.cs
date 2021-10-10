@@ -6,8 +6,6 @@ using Microsoft.Extensions.Logging;
 using OPLOGMicroservice.Business.Core.Interfaces;
 using OPLOGMicroservice.Business.CQRS.Commands;
 //using OPLOGMicroservice.Business.CQRS.Common.Queries.QueryEntities;
-using OPLOGMicroservice.Business.CQRS.Queries;
-using OPLOGMicroservice.Domain;
 using OPLOGMicroservice.Infra.DynamicQuery;
 using OPLOGMicroservice.Model.OPLOGMicroservice.CreateOPLOGMicroservice;
 using OPLOGMicroservice.Model.OPLOGMicroservice.DeleteOPLOGMicroservice;
