@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Nullable>warnings</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.10" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OPLOGMicroservice.Auth\OPLOGMicroservice.Auth.csproj" />
+    <ProjectReference Include="..\OPLOGMicroservice.Business.Core\OPLOGMicroservice.Business.Core.csproj" />
+    <ProjectReference Include="..\OPLOGMicroservice.Business\OPLOGMicroservice.Business.csproj" />
+    <ProjectReference Include="..\OPLOGMicroservice.Data\OPLOGMicroservice.Data.csproj" />
+    <ProjectReference Include="..\OPLOGMicroservice.Infra\OPLOGMicroservice.Infra.csproj" />
+    <ProjectReference Include="..\OPLOGMicroservice.Logging\OPLOGMicroservice.Logging.csproj" />
+    <ProjectReference Include="..\OPLOGMicroservice.Model\OPLOGMicroservice.Model.csproj" />
+  </ItemGroup>
+
+</Project>

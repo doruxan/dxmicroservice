@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGMicroservice.API", "OPLOGMicroservice.API\OPLOGMicroservice.API.csproj", "{65FE6334-C830-4047-9C73-808A7AE99926}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGMicroservice.Data", "OPLOGMicroservice.Data\OPLOGMicroservice.Data.csproj", "{31A91D4C-0468-4906-9CC6-BE1C3D939139}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGMicroservice.Business", "OPLOGMicroservice.Business\OPLOGMicroservice.Business.csproj", "{E48EF078-E44B-4437-8AD3-7C13528DE88B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGMicroservice.Domain", "OPLOGMicroservice.Domain\OPLOGMicroservice.Domain.csproj", "{B54F3339-9E69-42F6-AE4C-847ADBABE9B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGMicroservice.Data.Core", "OPLOGMicroservice.Data.Core\OPLOGMicroservice.Data.Core.csproj", "{3A46761B-B83B-4CC2-9BD8-0BE23DDA3A50}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGMicroservice.Infra", "OPLOGMicroservice.Infra\OPLOGMicroservice.Infra.csproj", "{1B71D301-AAB9-474B-8BA4-5E6ABD0AD6AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGMicroservice.Business.Core", "OPLOGMicroservice.Business.Core\OPLOGMicroservice.Business.Core.csproj", "{62C87473-F897-43D5-89A7-BD97B88514FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OPLOGMicroservice.Business.Core.Azure", "OPLOGMicroservice.Business.Core.Azure\OPLOGMicroservice.Business.Core.Azure.csproj", "{D1FBC30D-F8FE-45B2-BD67-607451237AFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPLOGMicroservice.Logging", "OPLOGMicroservice.Logging\OPLOGMicroservice.Logging.csproj", "{C1D4FF28-B881-4458-92CB-B9919C8A71F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPLOGMicroservice.Auth", "OPLOGMicroservice.Auth\OPLOGMicroservice.Auth.csproj", "{59365B44-F939-4EFB-BDDD-D4B605E2A5D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPLOGMicroservice.Model", "OPLOGMicroservice.Model\OPLOGMicroservice.Model.csproj", "{933F85F0-CF7A-493F-A0F5-A535A2D86CAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65FE6334-C830-4047-9C73-808A7AE99926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65FE6334-C830-4047-9C73-808A7AE99926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65FE6334-C830-4047-9C73-808A7AE99926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65FE6334-C830-4047-9C73-808A7AE99926}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31A91D4C-0468-4906-9CC6-BE1C3D939139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31A91D4C-0468-4906-9CC6-BE1C3D939139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31A91D4C-0468-4906-9CC6-BE1C3D939139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31A91D4C-0468-4906-9CC6-BE1C3D939139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E48EF078-E44B-4437-8AD3-7C13528DE88B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E48EF078-E44B-4437-8AD3-7C13528DE88B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E48EF078-E44B-4437-8AD3-7C13528DE88B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E48EF078-E44B-4437-8AD3-7C13528DE88B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B54F3339-9E69-42F6-AE4C-847ADBABE9B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B54F3339-9E69-42F6-AE4C-847ADBABE9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B54F3339-9E69-42F6-AE4C-847ADBABE9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B54F3339-9E69-42F6-AE4C-847ADBABE9B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A46761B-B83B-4CC2-9BD8-0BE23DDA3A50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A46761B-B83B-4CC2-9BD8-0BE23DDA3A50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A46761B-B83B-4CC2-9BD8-0BE23DDA3A50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A46761B-B83B-4CC2-9BD8-0BE23DDA3A50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B71D301-AAB9-474B-8BA4-5E6ABD0AD6AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B71D301-AAB9-474B-8BA4-5E6ABD0AD6AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B71D301-AAB9-474B-8BA4-5E6ABD0AD6AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B71D301-AAB9-474B-8BA4-5E6ABD0AD6AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62C87473-F897-43D5-89A7-BD97B88514FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62C87473-F897-43D5-89A7-BD97B88514FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62C87473-F897-43D5-89A7-BD97B88514FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62C87473-F897-43D5-89A7-BD97B88514FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1FBC30D-F8FE-45B2-BD67-607451237AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1FBC30D-F8FE-45B2-BD67-607451237AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1FBC30D-F8FE-45B2-BD67-607451237AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1FBC30D-F8FE-45B2-BD67-607451237AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1D4FF28-B881-4458-92CB-B9919C8A71F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1D4FF28-B881-4458-92CB-B9919C8A71F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1D4FF28-B881-4458-92CB-B9919C8A71F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1D4FF28-B881-4458-92CB-B9919C8A71F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59365B44-F939-4EFB-BDDD-D4B605E2A5D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59365B44-F939-4EFB-BDDD-D4B605E2A5D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59365B44-F939-4EFB-BDDD-D4B605E2A5D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59365B44-F939-4EFB-BDDD-D4B605E2A5D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{933F85F0-CF7A-493F-A0F5-A535A2D86CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{933F85F0-CF7A-493F-A0F5-A535A2D86CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{933F85F0-CF7A-493F-A0F5-A535A2D86CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{933F85F0-CF7A-493F-A0F5-A535A2D86CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {490DBA95-7185-426E-8F97-BA4459765193}
+	EndGlobalSection
+EndGlobal
